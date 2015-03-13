@@ -8,7 +8,6 @@ fi
 if [ -e '.zshrc' ]; then
   mv .zshrc .zshrc_backup_$(date +%Y%m%d%H%M%S)
 fi
-wget -O .zshrc 'https://raw.githubusercontent.com/amigcamel/workplace/master/.zshrc'
 
 # Install pyenv (see: https://github.com/yyuu/pyenv-installer)
 if [ -d '.pyenv' ]; then
