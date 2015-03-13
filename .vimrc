@@ -1,4 +1,4 @@
 set nu
 syntax enable
-colorscheme monokai
+colorscheme molokai
 let g:rehash256 = 1
