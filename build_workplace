@@ -1,10 +1,12 @@
 # Install zsh (see: https://github.com/robbyrussell/oh-my-zsh)
-#cd ~
-#if [ -d '.oh-my-zsh' ]; then
-#  echo 'zsh already installed! skipped...'
-#else
-#  wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O - | sh
-#fi
+cd ~
+if [ -d '.oh-my-zsh' ]; then
+  echo 'zsh already installed! skipped...'
+else
+  wget -O 'zsh-install.sh' https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh
+  sh zsh-install.sh
+  rm zsh-install.sh
+fi
 #if [ -e '.zshrc' ]; then
 #  mv .zshrc .zshrc_backup_$(date +%Y%m%d%H%M%S)
 #fi
