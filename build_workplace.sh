@@ -1,0 +1,37 @@
+# Install zsh (see: https://github.com/robbyrussell/oh-my-zsh)
+cd ~
+if [ -d '.oh-my-zsh' ]; then
+  echo 'zsh already installed! skipped...'
+else
+  wget -O 'zsh-install.sh' https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh
+  sh zsh-install.sh
+  rm zsh-install.sh
+fi
+#if [ -e '.zshrc' ]; then
+#  mv .zshrc .zshrc_backup_$(date +%Y%m%d%H%M%S)
+#fi
+
+# Install pyenv (see: https://github.com/yyuu/pyenv-installer)
+if [ -d '.pyenv' ]; then
+  echo 'pyenv already installed! skipped...'
+else
+  git clone https://github.com/yyuu/pyenv.git ~/.pyenv  
+fi
+
+# Install pyenv-virtualenv plugin
+if [ -d '.pyenv/plugins/pyenv-virtualenv' ]; then
+  echo 'pyenv-virtualenv already installed! skipped...'
+else
+  git clone https://github.com/yyuu/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
+fi
+
+# Setting vim
+mkdir -p .vim/colors
+wget -O .vim/colors/molokai.vim 'https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim'
+if [ -e '.vimrc' ]; then
+  mv .vimrc .vimrc_backup_$(date +%Y%m%d%H%M%S)
+fi
+wget -O .vimrc 'https://raw.githubusercontent.com/amigcamel/workplace/master/.vimrc'
+
+# Change default shell to zsh
+chsh -s /bin/zsh
